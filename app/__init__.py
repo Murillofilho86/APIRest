@@ -5,7 +5,7 @@ from flask_restless import APIManager
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/storage.db'
-_db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 '''
 #Classe para criar tabela usuarios
@@ -18,4 +18,4 @@ db.create_all()
 '''
 
 #Gerenciado da API 	(app,          banco de dados)
-manager = APIManager(app, flask_sqlalchemy_db=_db)
+manager = APIManager(app, flask_sqlalchemy_db=db)
